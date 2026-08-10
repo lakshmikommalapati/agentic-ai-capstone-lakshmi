@@ -1,0 +1,32 @@
+:root { --bg:#f6f8fb; --ink:#172033; --muted:#5c667a; --blue:#2454ff; --card:#ffffff; --warn:#fff3d6; --red:#e5484d; --green:#1b8f52; }
+* { box-sizing: border-box; }
+body { margin:0; font-family: Inter, Segoe UI, Arial, sans-serif; color:var(--ink); background:var(--bg); }
+header { background:linear-gradient(120deg,#111827,#2454ff); color:white; padding:34px 6vw; }
+h1 { margin:0; font-size:34px; }
+h2 { margin-top:0; }
+.subtitle { max-width:980px; opacity:.9; }
+.eyebrow { text-transform:uppercase; letter-spacing:.12em; font-size:12px; opacity:.75; }
+main { padding:28px 6vw 60px; }
+.panel, .client-card, .hero-card { background:var(--card); border-radius:18px; padding:24px; box-shadow:0 10px 30px rgba(20,32,55,.08); margin-bottom:22px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; }
+.grid-2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:22px; }
+.grid-3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+.button, button { display:inline-block; background:var(--blue); color:white; padding:10px 16px; border-radius:10px; text-decoration:none; border:0; cursor:pointer; font-weight:700; }
+.back { display:inline-block; margin-bottom:16px; color:var(--blue); text-decoration:none; }
+.hero-card { display:flex; justify-content:space-between; align-items:center; border-left:8px solid var(--blue); }
+.hero-card.critical { border-left-color:var(--red); }
+.hero-card.high { border-left-color:#f59e0b; }
+.priority { text-align:right; }
+.priority span { display:block; font-size:28px; font-weight:800; }
+.priority small { color:var(--muted); }
+.alerts li { margin:10px 0; color:#8a3300; background:var(--warn); padding:10px; border-radius:10px; }
+.score-row { display:flex; justify-content:space-between; border-bottom:1px solid #e7ebf3; padding:12px 0; }
+pre { white-space:pre-wrap; background:#f1f4f9; border-radius:14px; padding:16px; overflow:auto; line-height:1.45; }
+.evidence { border-left:4px solid #d6def7; padding-left:14px; margin-bottom:16px; }
+.warning { background:#fff3d6; padding:12px; border-radius:10px; }
+label { display:block; font-weight:700; margin-top:12px; }
+input, textarea { width:100%; padding:10px; border:1px solid #ccd3df; border-radius:10px; margin-top:6px; }
+textarea { min-height:80px; }
+.approve { background:var(--green); margin-top:12px; }
+.reject { background:var(--red); margin-top:12px; }
+.audit { font-size:13px; color:var(--muted); }

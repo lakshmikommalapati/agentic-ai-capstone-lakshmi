@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="back">← Back to portfolio</a>
+<section class="hero-card {{ result.priority|lower }}">
+  <div>
+    <p class="eyebrow">{{ result.client.client_id }}</p>
+    <h2>{{ result.client.client_name }}</h2>
+    <p>{{ result.client.industry }} | RM: {{ result.client.rm_name }} | Contact: {{ result.client.primary_contact }}</p>
+  </div>
+  <div class="priority">
+    <span>{{ result.priority }}</span>
+    <small>{{ result.action_theme }}</small>
+  </div>
+</section>
+
+<section class="grid-2">
+  <div class="panel">
+    <h2>Early Warning Signals</h2>
+    {% if result.alerts %}
+      <ul class="alerts">
+      {% for alert in result.alerts %}<li>{{ alert }}</li>{% endfor %}
+      </ul>
+    {% else %}
+      <p>No major early warning signal found.</p>
+    {% endif %}
+  </div>
+  <div class="panel">
+    <h2>Top Opportunities</h2>
+    {% for opp in result.opportunities %}
+      <div class="score-row"><strong>{{ opp.product }}</strong><span>{{ opp.score }}/100</span></div>
+      <p>{{ opp.reason }}</p>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="grid-2">
+  <div class="panel">
+    <h2>Client Meeting Brief</h2>
+    <pre>{{ result.meeting_brief }}</pre>
+  </div>
+  <div class="panel">
+    <h2>Next-Best-Actions</h2>
+    <ol>
+      {% for action in result.next_actions %}<li>{{ action }}</li>{% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="grid-2">
+  <div class="panel">
+    <h2>RAG Evidence</h2>
+    {% for ev in result.evidence %}
+      <div class="evidence">
+        <strong>{{ ev.source }} - {{ ev.title }}</strong>
+        <p>{{ ev.text }}</p>
+        <small>Similarity score: {{ ev.score }}</small>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="panel">
+    <h2>Human Approval Workflow</h2>
+    <p class="warning">Draft is not sent automatically. Relationship manager approval is mandatory.</p>
+    <h3>Draft Outreach Email</h3>
+    <pre>{{ result.draft_email }}</pre>
+    <form method="post" action="{{ url_for('approve', client_id=result.client.client_id) }}">
+      <label>Reviewer</label>
+      <input name="reviewer" value="Lakshmi Kommalapati">
+      <label>Comment</label>
+      <textarea name="comment" placeholder="Add approval or rejection comment"></textarea>
+      <button name="decision" value="Approved" class="approve">Approve</button>
+      <button name="decision" value="Rejected" class="reject">Reject</button>
+    </form>
+    <h3>Audit Trail</h3>
+    {% if decisions %}
+      <ul class="audit">
+      {% for d in decisions %}<li>{{ d.timestamp }} | {{ d.reviewer }} | {{ d.decision }} | {{ d.comment }}</li>{% endfor %}
+      </ul>
+    {% else %}
+      <p>No decisions recorded yet.</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

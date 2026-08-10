@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h2>Relationship Portfolio</h2>
+  <p>Select a client to run the agent scan across financials, account behavior, product usage, covenants, market news, CRM notes, and documents.</p>
+  <div class="cards">
+    {% for c in clients %}
+    <article class="client-card">
+      <h3>{{ c.client_name }}</h3>
+      <p><strong>Industry:</strong> {{ c.industry }}</p>
+      <p><strong>Tier:</strong> {{ c.relationship_tier }}</p>
+      <p><strong>Revenue:</strong> ₹{{ c.annual_revenue_mn }} mn</p>
+      <a class="button" href="{{ url_for('client_detail', client_id=c.client_id) }}">Run Agent Scan</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="panel grid-3">
+  <div><h3>1. Sense</h3><p>Scans core banking, CRM, covenants, news, and documents.</p></div>
+  <div><h3>2. Reason</h3><p>Scores risk and opportunity with explainable evidence.</p></div>
+  <div><h3>3. Act with control</h3><p>Drafts outreach but requires human approval before sending.</p></div>
+</section>
+{% endblock %}

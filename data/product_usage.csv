@@ -1,0 +1,4 @@
+client_id,has_cash_management,has_trade_finance,has_fx_hedging,has_salary_accounts,has_term_loan,has_treasury_deposits,monthly_fee_revenue_lakh
+C001,yes,yes,no,yes,yes,no,18
+C002,no,yes,no,no,yes,no,7
+C003,yes,no,yes,yes,no,yes,14

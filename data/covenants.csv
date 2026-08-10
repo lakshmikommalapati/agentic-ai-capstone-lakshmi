@@ -1,0 +1,7 @@
+client_id,covenant_name,threshold,current_value,status,last_tested
+C001,Debt/EBITDA <= 3.0x,3.0,3.18,At Risk,2026-06-30
+C001,DSCR >= 1.35x,1.35,1.42,Pass,2026-06-30
+C002,Debt/EBITDA <= 3.5x,3.5,4.25,Breach,2026-06-30
+C002,Minimum Cash Balance >= 6 mn,6,5,Breach,2026-06-30
+C003,Debt/EBITDA <= 2.5x,2.5,1.17,Pass,2026-06-30
+C003,DSCR >= 1.50x,1.50,2.20,Pass,2026-06-30

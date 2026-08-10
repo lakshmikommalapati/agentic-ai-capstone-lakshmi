@@ -1,0 +1,4 @@
+client_id,client_name,industry,rm_name,annual_revenue_mn,relationship_tier,primary_contact,email
+C001,Apex Auto Components,Auto Components,Lakshmi Kommalapati,540,Platinum,Meera Rao,meera.rao@apexauto.example
+C002,Nova Textiles,Textiles,Lakshmi Kommalapati,220,Gold,Arun Menon,arun.menon@novatextiles.example
+C003,Helio Foods,FMCG,Lakshmi Kommalapati,310,Gold,Kavita Shah,kavita.shah@heliofoods.example
